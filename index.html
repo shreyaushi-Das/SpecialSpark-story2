@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Storybook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="storybook">
+        <div class="progress-bar" id="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+
+        <!-- Page 1 -->
+        <div class="page fade-in" id="page-1">
+            <h1>Welcome to the Enchanted Forest</h1>
+            <p>Once upon a time in a magical forest...</p>
+            <img src="forest.png" alt="Forest" class="animated-forest">
+            <button class="next-button" onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="page hidden" id="page-2">
+            <h1>The Mysterious Creature</h1>
+            <p>As you walk deeper, you encounter a mysterious creature...</p>
+            <img src="creature.png" alt="Creature" class="animated-creature">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="choice-button" onclick="makeChoice('choice1')">Follow the Creature</button>
+            <button class="choice-button" onclick="makeChoice('choice2')">Return to Safety</button>
+        </div>
+
+        <!-- Choice 1 - Follow the Creature -->
+        <div class="page hidden" id="page-3">
+            <h1>The Hidden Path</h1>
+            <p>Following the creature leads you to a hidden path in the forest...</p>
+            <img src="hidden-path.jpeg" alt="Hidden Path" class="animated-path">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="choice-button" onclick="makeChoice('choice3')">Explore the Path</button>
+            <button class="choice-button" onclick="makeChoice('choice4')">Return to Creature</button>
+        </div>
+
+        <!-- Choice 2 - Return to Safety -->
+        <div class="page hidden" id="page-4">
+            <h1>Back to the Clearing</h1>
+            <p>You return to the safety of the clearing, but the adventure is not over yet...</p>
+            <img src="clearing.jpeg" alt="Clearing" class="animated-clearing">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="choice-button" onclick="makeChoice('choice5')">Rest and Reflect</button>
+            <button class="choice-button" onclick="makeChoice('choice6')">Re-enter the Forest</button>
+        </div>
+
+        <!-- Choice 3 - Explore the Path -->
+        <div class="page hidden" id="page-5">
+            <h1>The Enchanted Glade</h1>
+            <p>Exploring the hidden path, you discover a beautiful enchanted glade...</p>
+            <img src="glade.jpeg" alt="Enchanted Glade" class="animated-glade">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="choice-button" onclick="makeChoice('choice7')">Investigate the Glade</button>
+            <button class="choice-button" onclick="makeChoice('choice8')">Return to Path</button>
+        </div>
+
+        <!-- Choice 4 - Return to Creature -->
+        <div class="page hidden" id="page-6">
+            <h1>The Creature's Lair</h1>
+            <p>Returning to the creature, you find its hidden lair...</p>
+            <img src="lair.jpeg" alt="Lair" class="animated-lair">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="choice-button" onclick="makeChoice('choice9')">Explore the Lair</button>
+            <button class="choice-button" onclick="makeChoice('choice10')">Leave the Lair</button>
+        </div>
+
+        <!-- Choice 5 - Rest and Reflect -->
+        <div class="page hidden" id="page-7">
+            <h1>Rest and Reflection</h1>
+            <p>Resting in the clearing, you reflect on your adventure so far...</p>
+            <img src="resting.jpeg" alt="Resting" class="animated-resting">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="restart-button" onclick="restartStory()">Restart</button>
+        </div>
+
+        <!-- Choice 6 - Re-enter the Forest -->
+        <div class="page hidden" id="page-8">
+            <h1>Re-entering the Forest</h1>
+            <p>Re-entering the forest, you find a new path to explore...</p>
+            <img src="new-path.jpeg" alt="New Path" class="animated-new-path">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="restart-button" onclick="restartStory()">Restart</button>
+        </div>
+
+        <!-- Choice 7 - Investigate the Glade -->
+        <div class="page hidden" id="page-9">
+            <h1>The Glade's Secret</h1>
+            <p>Investigating the glade, you uncover a magical secret...</p>
+            <img src="secret.jpeg" alt="Secret" class="animated-secret">
+            <button class="restart-button" onclick="restartStory()">Restart</button>
+        </div>
+
+        <!-- Choice 8 - Return to Path -->
+        <div class="page hidden" id="page-10">
+            <h1>Back to the Path</h1>
+            <p>Returning to the path, you find your way back to the clearing...</p>
+            <img src="path-return.jpeg" alt="Path Return" class="animated-path-return">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="restart-button" onclick="restartStory()">Restart</button>
+        </div>
+
+        <!-- Choice 9 - Explore the Lair -->
+        <div class="page hidden" id="page-11">
+            <h1>Inside the Lair</h1>
+            <p>Exploring the lair, you discover fascinating artifacts...</p>
+            <img src="artifacts.jpeg" alt="Artifacts" class="animated-artifacts">
+            <button class="restart-button" onclick="restartStory()">Restart</button>
+        </div>
+
+        <!-- Choice 10 - Leave the Lair -->
+        <div class="page hidden" id="page-12">
+            <h1>Leaving the Lair</h1>
+            <p>Leaving the lair, you decide where to go next...</p>
+            <img src="leave-lair.jpeg" alt="Leave Lair" class="animated-leave-lair">
+            <button class="next-button" onclick="nextPage()">Next</button>
+            <button class="restart-button" onclick="restartStory()">Restart</button>
+        </div>
+
+        <div class="music-controls">
+            <button id="play-music-button" onclick="toggleMusic()">Play Music</button>
+            <button id="pause-music-button" onclick="toggleMusic()" style="display: none;">Pause Music</button>
+            <input type="range" id="volume-control" min="0" max="1" step="0.1" value="1">
+        </div>
+    </div>
+
+    <div class="credit">
+        Made by LP - Limitless Programmer
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="round.mp4" type="audio/mp4">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
