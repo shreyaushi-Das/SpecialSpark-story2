@@ -1,5 +1,5 @@
 let currentPage = 1;
-const totalPages = 12;
+const totalPages = 7;
 const progressBar = document.getElementById('progress-bar');
 const progressFill = document.getElementById('progress-fill');
 const backgroundMusic = document.getElementById('background-music');
@@ -71,10 +71,10 @@ function makeChoice(choice) {
             showPage(6);
             break;
         case 'choice7':
-            showPage(9);
+            showPage(7);
             break;
         case 'choice8':
-            showPage(10);
+            showPage(6);
             break;
         case 'choice9':
             showPage(11);
