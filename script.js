@@ -65,10 +65,10 @@ function makeChoice(choice) {
             showPage(6);
             break;
         case 'choice5':
-            showPage(7);
+            showPage(5);
             break;
         case 'choice6':
-            showPage(8);
+            showPage(6);
             break;
         case 'choice7':
             showPage(9);
